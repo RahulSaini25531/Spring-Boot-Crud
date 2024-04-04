@@ -1,0 +1,86 @@
+<div class="container">
+    <div align="right">
+        <button mat-raised-button color="accent" routerLink="/employee-list">Go to Employee List</button>
+    </div>
+    <div class="card p-5 mt-2">
+
+        <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Id</mat-label>
+                <input matInput placeholder="Employee Id" name="employeeId" [(ngModel)]="employee.employeeId" disabled>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <input matInput placeholder="Employee Name" name="employeeName" [(ngModel)]="employee.employeeName">
+                <mat-icon matSuffix>person</mat-icon>
+              
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact Number</mat-label>
+                <input matInput placeholder="Contact Number" name="employeeContactNumber" [(ngModel)]="employee.employeeContactNumber">
+                <mat-icon matSuffix>call</mat-icon>
+               
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Address" name="employeeAddress" [(ngModel)]="employee.employeeAddress">
+                <mat-icon matSuffix>apartment</mat-icon>
+            
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Choose Your Department</mat-label>
+                <mat-select name="employeeDepartment" [(ngModel)]="employee.employeeDeparment">
+                    <mat-option value="IT">IT</mat-option>
+                    <mat-option value="Network">Network</mat-option>
+                    <mat-option value="Finance">Finance</mat-option>
+                    <mat-option value="Sales">Sales</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <label>Gender</label>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="Male" [checked]="checkGender('Male')" (click)="selectGender('Male')">Male</mat-radio-button>
+                    <mat-radio-button value="Female" [checked]="checkGender('Female')" (click)="selectGender('Female')">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <mat-form-field appearance="outline" class="mt-2">
+                <mat-label>Employee Skills</mat-label>
+                <input matInput placeholder="Employee Skills" name="employeeSkills" [(ngModel)]="employee.employeeSkills" disabled>
+                <mat-icon matSuffix>menu_book</mat-icon>
+            
+            </mat-form-field>
+
+            <div>
+                <label>Skills</label>
+                <section class="example-section">
+                    <mat-checkbox (change)="onSkillschanges($event)" value="Java" class="example-margin" [checked]="checkSkills('Java')">Java</mat-checkbox>
+                    <mat-checkbox (change)="onSkillschanges($event)" value="Angular" class="example-margin" [checked]="checkSkills('Angular')">Angular</mat-checkbox>
+                    <mat-checkbox (change)="onSkillschanges($event)" value="Spring Boot" class="example-margin" [checked]="checkSkills('Spring Boot')">Spring Boot</mat-checkbox>
+                    <mat-checkbox (change)="onSkillschanges($event)" value="AWS" class="example-margin" [checked]="checkSkills('AWS')">AWS</mat-checkbox>
+                    <mat-checkbox (change)="onSkillschanges($event)" value="Web Devlopment" class="example-margin" [checked]="checkSkills('Web Devlopment')">Web Devlopment</mat-checkbox>
+                    <mat-checkbox (change)="onSkillschanges($event)" value="Dev-OPs" class="example-margin" [checked]="checkSkills('Dev-OPs')">Dev-OPs</mat-checkbox>
+                    <mat-checkbox (change)="onSkillschanges($event)" value="Oracle(sql)" class="example-margin" [checked]="checkSkills('Oracle(sql)')">Oracle(sql)</mat-checkbox>
+                </section>
+
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="text-center mt-3">
+                <button mat-raised-button class="m-2">Clear</button>
+                <button mat-raised-button color="primary" class="m-2">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
